@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shaw.lts.persist.mapper.LtsUserTrackMapper">
+  <resultMap id="BaseResultMap" type="com.shaw.lts.persist.model.LtsUserTrack">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="longitude" jdbcType="DOUBLE" property="longitude" />
+    <result column="latitude" jdbcType="DOUBLE" property="latitude" />
+    <result column="altitude" jdbcType="DOUBLE" property="altitude" />
+    <result column="track_address" jdbcType="VARCHAR" property="trackAddress" />
+    <result column="direction" jdbcType="REAL" property="direction" />
+    <result column="accuracy" jdbcType="REAL" property="accuracy" />
+    <result column="track_time" jdbcType="TIMESTAMP" property="trackTime" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>

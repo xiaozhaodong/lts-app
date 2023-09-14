@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shaw.lts.persist.mapper.SysHandleLogMapper">
+  <resultMap id="BaseResultMap" type="com.shaw.lts.persist.model.SysHandleLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="trace_id" jdbcType="VARCHAR" property="traceId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="business_type" jdbcType="VARCHAR" property="businessType" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    <result column="request_type" jdbcType="VARCHAR" property="requestType" />
+    <result column="handle_date" jdbcType="VARCHAR" property="handleDate" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="request_ip" jdbcType="VARCHAR" property="requestIp" />
+    <result column="request_url" jdbcType="VARCHAR" property="requestUrl" />
+    <result column="request_start_time" jdbcType="VARCHAR" property="requestStartTime" />
+    <result column="request_end_time" jdbcType="VARCHAR" property="requestEndTime" />
+    <result column="request_expand_time" jdbcType="BIGINT" property="requestExpandTime" />
+    <result column="bln_success" jdbcType="CHAR" property="blnSuccess" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="error_desc" jdbcType="LONGVARCHAR" property="errorDesc" />
+    <result column="request_param" jdbcType="LONGVARCHAR" property="requestParam" />
+    <result column="response_param" jdbcType="LONGVARCHAR" property="responseParam" />
+  </resultMap>
+</mapper>

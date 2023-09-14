@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <!-- 为模型生成序列化方法-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 为生成的Java模型创建一个toString方法 -->
+<!--        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>-->
+        <!--生成mapper.xml时覆盖原文件-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+
+        <plugin type="com.shaw.lts.persist.generate.MyMapperPlugin">
+            <property name="mappers" value="com.shaw.lts.persist.BaseMapper"/>
+        </plugin>
+
+        <plugin type="com.shaw.lts.persist.generate.MyServicePlugin">
+            <property name="targetDir" value="lts-app-adapter/src/main/java"/>
+            <property name="serviceTargetPackage" value="com.shaw.lts.adapter.service"/>
+            <property name="serviceImplTargetPackage" value="com.shaw.lts.adapter.service.impl"/>
+            <property name="superServiceTargetPackage" value="com.shaw.lts.core.service.BaseService"/>
+            <property name="superServiceImplTargetPackage" value="com.shaw.lts.core.service.impl.BaseServiceImpl"/>
+        </plugin>
+
+<!--        <commentGenerator type="org.mybatis.generator.internal.DefaultCommentGenerator">-->
+<!--            &lt;!&ndash; 是否去除自动生成的注释 true：是 ： false:否 &ndash;&gt;-->
+<!--            <property name="suppressAllComments" value="false"/>-->
+<!--            <property name="suppressDate" value="true"/>-->
+<!--            <property name="addRemarkComments" value="true"/>-->
+<!--        </commentGenerator>-->
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://39.98.194.60:3306/lts_db?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai&amp;useSSL=false"
+                        userId="root"
+                        password="root@2023">
+        </jdbcConnection>
+
+        <!-- 对于生成的pojo所在包 -->
+        <javaModelGenerator targetPackage="com.shaw.lts.persist.model" targetProject="lts-app-gen/src/main/java"/>
+
+        <!-- 对于生成的mapper所在目录 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="lts-app-gen/src/main/resources"/>
+
+        <!-- 配置mapper对应的java映射 -->
+        <javaClientGenerator targetPackage="com.shaw.lts.persist.mapper" targetProject="lts-app-gen/src/main/java"
+                             type="XMLMAPPER"/>
+
+        <table tableName="lts_sys_user">
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        </table>
+        <table tableName="sys_handle_log"/>
+        <table tableName="lts_user_care"/>
+        <table tableName="lts_user_track"/>
+    </context>
+</generatorConfiguration>
